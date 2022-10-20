@@ -1,3 +1,7 @@
+# Developer-defined secrets and details
+*/secrets/*
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
