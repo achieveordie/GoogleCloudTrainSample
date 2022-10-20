@@ -1,5 +1,5 @@
 # Developer-defined secrets and details
-*/secrets/*
+secrets/*
 .idea/
 
 # Byte-compiled / optimized / DLL files
