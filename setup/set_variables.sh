@@ -11,7 +11,7 @@ function export_variables(){
   echoResults=false
 
   export RUNTIME_VERSION=2.1
-  export PYTHON_VERSION=3.7
+  export PYTHON_VERSION=3.9
   export REGION=us-east1
   export SA_NAME=sagar-mishra
   export PROJECT_ID=geometric-petal-362311
