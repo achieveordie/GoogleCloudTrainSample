@@ -2,8 +2,8 @@
 :: .cmd is preferred to .bat files
 
 @echo off
-SET RUNTIME_VERSION=2.1
-SET PYTHON_VERSION=3.9
+SET RUNTIME_VERSION=2.8
+SET PYTHON_VERSION=3.7
 SET REGION=us-east1
 SET SA_NAME=sagar-mishra
 SET PROJECT_ID=geometric-petal-362311
