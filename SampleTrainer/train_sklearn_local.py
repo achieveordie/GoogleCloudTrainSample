@@ -3,12 +3,11 @@ import argparse
 import tensorflow as tf
 
 from tempfile import TemporaryDirectory
-from utils import get_data, save_file
+from SampleTrainer import get_data, save_file
 from pathlib import Path
 import joblib
 from sklearn.linear_model import LogisticRegression
 
-RANDOM_STATE = 10
 SAVE_LOCATION = Path().cwd().parents[0] / "models/sklearn/"
 SAVE_LOCATION.mkdir(exist_ok=True, parents=True)
 
@@ -28,10 +27,6 @@ def train(save_location):
         joblib.dump(model, temp_save_loc)
 
         save_file(temp_save_loc, save_location)
-
-        with tf.io.gfile.GFile(temp_save_loc, "rb") as temp_file:
-            with tf.io.gfile.GFile(save_location, "wb") as file:
-                file.write(temp_file.read())
 
     print("Done Saving the model in: ", str(save_location))
 
