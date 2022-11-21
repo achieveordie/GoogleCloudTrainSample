@@ -26,13 +26,14 @@ SET mins=%time:~3,2%
 SET EPOCH_FORMAT="%day%%month%_%hours%%mins%"
 SET JOB_NAME="train_%MODEL_NAME%_%EPOCH_FORMAT%"
 
+:: To Train sklearn estimator instead, use `--module-name=SampleTrainer.train_sklearn_cloud` instead
 gcloud ai-platform jobs submit training %JOB_NAME% ^
     --job-dir=%MODEL_DIR% ^
     --runtime-version=%RUNTIME_VERSION% ^
     --region=%REGION% ^
     --scale-tier=%TIER% ^
     --package-path=%PACKAGE_PATH% ^
-    --module-name=SampleTrainer.train_tf ^
+    --module-name=SampleTrainer.train_tf_cloud ^
     --python-version=%PYTHON_VERSION% ^
     --stream-logs ^
     -- ^

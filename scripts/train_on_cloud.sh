@@ -1,4 +1,4 @@
-
+#Read `train_on_cloud.cmd` for more information
 set -v
 
 TIER=BASIC
@@ -17,7 +17,7 @@ gcloud ai-platform jobs submit training "${JOB_NAME}" \
     --region="${REGION}" \
     --scale-tier="${TIER}" \
     --package-path="${PACKAGE_PATH}" \
-    --module-name=trainer.task \
+    --module-name=SampleTrainer.train_tf_cloud \
     --python-version="${PYTHON_VERSION}" \
     --stream-logs \
     -- \
