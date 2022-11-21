@@ -7,7 +7,6 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from SampleTrainer import get_data
 
-RANDOM_STATE = 10
 SAVE_LOCATION = Path.cwd().parents[0] / "models/tf/"
 SAVE_LOCATION.mkdir(exist_ok=False, parents=True)
 

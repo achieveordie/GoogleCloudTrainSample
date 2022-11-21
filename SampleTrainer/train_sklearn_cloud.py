@@ -1,11 +1,8 @@
 import os
-import argparse
 import logging
-import gcsfs
-
 
 from tempfile import TemporaryDirectory
-from SampleTrainer import get_data, save_file
+from SampleTrainer import get_data, parse, save_file
 from pathlib import Path
 import joblib
 from sklearn.linear_model import LogisticRegression
@@ -35,45 +32,5 @@ def train(save_location, verbose):
 
 
 if __name__ == "__main__":
-    logging.basicConfig()
-    logging.info("[LOGGED]Starting parsing arguments")
-
-    parser = argparse.ArgumentParser(
-        description="Train Simple NN on dummy data using sklearn"
-    )
-
-    parser.add_argument(
-        "-l",
-        "--location",
-        help="The location to store the trained estimator",
-    )
-
-    parser.add_argument(
-        "-v",
-        "--verbose",
-        choices=["0", "1", "2"],
-        default=0,
-        help="Verbosity, choose between {0, 1, 2}",
-    )
-
-    parser.add_argument(
-        "-j",
-        "--job-dir",
-        help="Argument passed by AI-Platform, not used here.",
-    )
-
-    args = parser.parse_args()
-    if isinstance(args.location, str) and args.location.startswith("gs://"):
-        fs = gcsfs.GCSFileSystem(
-            token="cloud",
-        )
-
-        save_location = args.location.split("gs://")[-1]
-        if not fs.exists(save_location):
-            fs.makedir(save_location)
-
-    else:
-        raise ValueError("Unsupported Value: ", args.location)
-
-    logging.info(f"[LOGGED]Parsed Arguments: {args}")
-    train(save_location, int(args.verbose))
+    save_location, verbosity = parse(type_of_model="sklearn")
+    train(save_location, verbosity)

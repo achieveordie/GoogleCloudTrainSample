@@ -1,7 +1,5 @@
 import argparse
 
-import tensorflow as tf
-
 from tempfile import TemporaryDirectory
 from SampleTrainer import get_data, save_file
 from pathlib import Path
