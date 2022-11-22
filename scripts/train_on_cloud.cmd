@@ -2,6 +2,7 @@
 
 ECHO Submitting the job to AI platform..
 :: Temporarily set an environment variable
+:: Set `MODEL_NAME` with a different name (eg: sample_model_sklearn)
 SET TIER=BASIC
 SET MODEL_NAME=sample_model_tf
 SET MODEL_DIR=gs://%BUCKET_NAME%/%MODEL_NAME%
